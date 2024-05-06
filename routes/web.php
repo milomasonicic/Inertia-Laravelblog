@@ -55,4 +55,7 @@ Route::get('/yourPost/{id}', [PostController::class, 'show'])->name('yourPost');
 
 Route::post('/file-upload', [FileController::class, 'store'])->name('upload');
 
+//update ruta
+Route::put('/updatePost', [PostController::class, 'update'])->name('updatePost');
+
 require __DIR__.'/auth.php';

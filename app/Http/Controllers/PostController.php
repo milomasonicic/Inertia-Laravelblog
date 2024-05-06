@@ -53,6 +53,25 @@ class PostController extends Controller
 
     }
 
+    //
+    public function update(Request $request) 
+    {
+
+        $id= $request->postId;
+       $post= Post::find($id);
+      
+       $post->update([
+        'content' => $request->content,
+        'title' => $request->title,
+        'tag' => $request->tag
+    ]);
+         
+        $postId = $request->id;
+        
+      
+
+    }
+
 
   
 }

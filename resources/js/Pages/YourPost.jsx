@@ -1,7 +1,43 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import {useRef} from 'react'
+import { useForm } from '@inertiajs/react'
+import { router } from "@inertiajs/react"
+import { useState } from 'react';
 
 export default function YourPost({auth, post}) {
+
+
+    //update post intereactions
+    const [title, setTitle] = useState(post.title);
+    const [content, setContent] = useState(post.content);
+    const [tag, setTag] = useState(post.tag);
+
+    //update funkcije
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+      };
+
+      const handleContentChange = (e) => {
+        setContent(e.target.value);
+      };  
+
+      const handleTagChange = (e) => {
+        setTag(e.target.value);
+      }; 
+
+    const { data, setData, put, processing, errors } = useForm({
+        postId: '',
+        email: '',
+        password: '',
+        remember: false,
+      })
+
+      function submit(e) {
+        e.preventDefault()
+        router.put("/updatePost", data)
+       
+  
+    }
 
     return (
         <div>
@@ -15,27 +51,26 @@ export default function YourPost({auth, post}) {
                             <div className="p-6 text-gray-900">
                                 
 
-                                <form action="" className='w-[90%] mx-auto'>
+                                <form onSubmit={submit} className='w-[90%] mx-auto'>
                                     <h1 className='mb-4 mt-4 text-bold font-semibold'>Check your post before publishing it</h1>
                                     <input hidden type="number" value={post.id} />
 
                                      <div>
                                         <label htmlFor="">Title</label>
-                                        <input className='w-[100%]' type="text" value={post.title}></input>
+                                        <input className='w-[100%]' type="text" value={title} onChange={handleTitleChange}></input>
                                     
                                     </div> 
 
                                     <div>
                                         <label htmlFor="">Content</label>
-                                        <textarea cols="30" rows="10" className='w-[100%]' name="" id="" value={post.content}></textarea>
+                                        <textarea cols="30" onChange={handleContentChange} rows="10" className='w-[100%]' name="" id="" value={content}></textarea>
 
                                     </div>              
 
 
-                                    <label htmlFor="Tag">Tag: {post.tag}  </label>
+                                    <label htmlFor="Tag">Tag: {tag}  </label>
                                     <div>
-                                    <select name="tag" id="">
-                                        <option value=" "> </option>
+                                    <select name="tag" id="" onChange={handleTagChange}>
                                         <option value="sport">Sport</option>
                                         <option value="kultura">Kultura</option>
                                         <option value="politika">Politika</option>

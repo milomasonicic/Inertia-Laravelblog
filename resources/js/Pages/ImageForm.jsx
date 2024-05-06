@@ -15,7 +15,7 @@ export default function ImageForm({postId}) {
   
 }
     
-    const { data, formData,  setData, put, progress } = useForm({
+    const { data, formData,  setData, put,  progress } = useForm({
         postId: " ",
         name: " ",
         file: null,
