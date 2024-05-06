@@ -51,12 +51,7 @@ Route::get('newPost/{id}', function($id) {
 })->name('newPost');
 
 //yourPost
-Route::get('yourPost/{id}', function($id) {
-    return Inertia::render('YourPost', [
-        'postId'=> $id,
-        'post'=> Post::find($id),
-    ]);
-})->name('yourPost');
+Route::get('/yourPost/{id}', [PostController::class, 'show'])->name('yourPost');
 
 Route::post('/file-upload', [FileController::class, 'store'])->name('upload');
 

@@ -6,14 +6,13 @@ import { useEffect, useState, useRef } from "react"
 export default function ImageForm({postId}) {
 
     //see the image
-    const [selectedFiles, setSelectedFiles] = useState([])
-
- 
+  const [selectedFile, setSelectedFile] = useState(null);
+  
 
   const renderPhotos = (source) => {
-    return source.map((photo) => {
-      return <img key={photo} src={photo} alt="" style={{width: "20%", height: "180px"}} />
-    })
+    
+      return <img src={source} alt="" style={{width: "20%", height: "180px"}} />
+  
 }
     
     const { data, formData,  setData, put, progress } = useForm({
@@ -40,19 +39,20 @@ export default function ImageForm({postId}) {
       //for sending
       const handleImageChange = (e) => {
         setData("file", e.target.files[0])
+
         if(e.target.files) {
-          const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file))
-          setSelectedFiles((prevImages) => prevImages.concat(filesArray))
-          Array.from(e.target.files).map(
-            (file)=> URL.revokeObjectURL(file)
-          )
+          const file = e.target.files[0]
+          const fileUrl = URL.createObjectURL(file)
+          setSelectedFile(fileUrl)
+          
+          if(selectedFile) {
+            URL.revokeObjectURL(selectedFile)
+          }
         }
       }
 
-  function first(e){
     
-    handleImageChange()
-  }
+
    
       return (
         <div>
@@ -65,6 +65,7 @@ export default function ImageForm({postId}) {
         <div className="mb-4">
         </div>
         <input hidden type="number" value={data.postId} onChange={e => setData('postId', e.target.value)} />
+       
         <div className="mb-4">
           <input type="file"
             className="w-full px-4 py-2"
@@ -74,12 +75,24 @@ export default function ImageForm({postId}) {
             />
           {errors.file && <div id='danger'>{errors.file}</div> || <div id='danger'>{errors.mimes}</div>}
         </div>
-        <div className="result"> {renderPhotos(selectedFiles)} </div>
+        <div className="result flex"> {renderPhotos(selectedFile)} </div>
+
+        <div>
+          <button type="submit" 
         
-        <button type="submit" class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+          class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+         
+          
+          
+        
+        </div>
+        
          <div>
         </div>
       </form>
+
+        
+
           <div>
          
           </div>
@@ -93,4 +106,20 @@ export default function ImageForm({postId}) {
                 setData("file", e.target.files[0])
             }
 
+
+            ako budem htio da pravim arej...
+              setData("file", e.target.files[0])
+
+        if(e.target.files) {
+          const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file))
+          setSelectedFiles((prevImages) => prevImages.concat(filesArray))
+          Array.from(e.target.files).map(
+            (file)=> URL.revokeObjectURL(file)
+          )
+        }
+
+          const renderPhotos = (source) => {
+    return source.map((photo) => {
+      return <img key={photo} src={source} alt="" style={{width: "20%", height: "180px"}} />
+    })
     */

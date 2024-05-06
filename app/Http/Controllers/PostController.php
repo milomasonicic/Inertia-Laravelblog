@@ -43,9 +43,13 @@ class PostController extends Controller
     }
 
 
-    public function store2(Request $request) 
+    public function show($id) 
     {
-        dd($request);
+       $post = Post::with('files')->find($id);
+
+       return Inertia::render('YourPost', [
+        'post' => $post
+       ]);
 
     }
 

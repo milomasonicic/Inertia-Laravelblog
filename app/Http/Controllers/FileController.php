@@ -40,7 +40,7 @@ class FileController extends Controller
         File::create([
             'name' => $request->name,
             'filename' => $fileName,
-            'img_url'=>  'uploads/'.$fileName,
+            'img_url'=>  './uploads/'.$fileName,
             'post_id' => $request->postId,
            // "tag" => $request->type
             "tag" => "video"
