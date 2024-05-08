@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -40,7 +41,7 @@ class FileController extends Controller
         File::create([
             'name' => $request->name,
             'filename' => $fileName,
-            'img_url'=>  './uploads/'.$fileName,
+            'img_url'=>  "/uploads/".$fileName,
             'post_id' => $request->postId,
            // "tag" => $request->type
             "tag" => "video"
@@ -68,6 +69,27 @@ class FileController extends Controller
         dd($request);
         $fileName = time().'.'.$request->file->extension();  
         $request->file->move(public_path('uploads'), $fileName);
+    }
+
+    //delete
+
+    public function delete(Request $request)
+    {
+        $file = File::find($request->fileId);
+        
+        if ($file) {
+            // Obriši fizički fajl iz sistema
+            Storage::delete($file->img_url);
+
+            // Obriši red iz baze podataka
+            $file->delete();
+
+            // Vrati odgovor da je fajl uspešno obrisan
+            return response()->json(['message' => 'File deleted successfully']);
+        } else {
+            // Ako fajl ne postoji, vrati odgovor sa greškom
+            return response()->json(['message' => 'File not found'], 404);
+        }
     }
 
 }

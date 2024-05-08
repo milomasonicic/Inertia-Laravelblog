@@ -47,6 +47,7 @@ export default function Dashboard({ auth }) {
                                 <div>
                                     <label htmlFor="content">Content: </label>
                                     <textarea className='w-[100%]' name="content" id="name" value={data.content} 
+                                     cols="30" rows="10"
                                      onChange={e => setData('content', e.target.value)} >
                                     {errors.content && <div id='danger'>{errors.content}</div>}
                                     </textarea>

@@ -56,6 +56,7 @@ class PostController extends Controller
     //
     public function update(Request $request) 
     {
+       // dd($request);
 
         $id= $request->postId;
        $post= Post::find($id);
@@ -64,12 +65,7 @@ class PostController extends Controller
         'content' => $request->content,
         'title' => $request->title,
         'tag' => $request->tag
-    ]);
-         
-        $postId = $request->id;
-        
-      
-
+    ]);      
     }
 
 

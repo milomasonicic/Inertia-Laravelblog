@@ -58,4 +58,7 @@ Route::post('/file-upload', [FileController::class, 'store'])->name('upload');
 //update ruta
 Route::put('/updatePost', [PostController::class, 'update'])->name('updatePost');
 
+//File Delete
+Route::post('/deletefile', [FileController::class, 'delete'])->name('deletefile');
+
 require __DIR__.'/auth.php';
