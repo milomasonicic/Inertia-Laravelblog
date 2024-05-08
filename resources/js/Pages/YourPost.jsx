@@ -107,7 +107,7 @@ export default function YourPost({auth, post}) {
                           
                             </div>
 
-                            <div>
+                            <div className=' px-4 w-[90%] mx-auto'>
                             <button type='submit'> Delete </button>
                             <button type='submit'> Publish </button>
                             </div>

@@ -58,6 +58,9 @@ Route::post('/file-upload', [FileController::class, 'store'])->name('upload');
 //update ruta
 Route::put('/updatePost', [PostController::class, 'update'])->name('updatePost');
 
+//update fileName ruta
+Route::put('/updatefilename', [FileController::class, 'updatename'])->name('updateFileName');
+
 //File Delete
 Route::post('/deletefile', [FileController::class, 'delete'])->name('deletefile');
 

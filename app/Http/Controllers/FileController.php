@@ -92,4 +92,15 @@ class FileController extends Controller
         }
     }
 
+    public function updatename(Request $request){
+
+       // dd($request);
+        $id= $request->fileId;
+        $file= File::find($id);
+
+        $file->update([
+            'name' => $request->title,
+        ]); 
+    }
+
 }
