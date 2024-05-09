@@ -69,5 +69,31 @@ class PostController extends Controller
     }
 
 
+     //delete
+
+     public function delete(Request $request)
+     {
+
+        //dd($request);
+
+         $post = Post::find($request->postId);
+         $post->delete();
+
+         return redirect()->route('mypage');
+         
+     }
+
+     //publisy
+     public function publish(Request $request)
+     {
+
+         $post = Post::find($request->postId);
+         $post->update([
+            'published'=> 1
+         ]);
+
+         return redirect()->route('mypage');
+         
+     }
   
 }

@@ -64,4 +64,16 @@ Route::put('/updatefilename', [FileController::class, 'updatename'])->name('upda
 //File Delete
 Route::post('/deletefile', [FileController::class, 'delete'])->name('deletefile');
 
+//delete post
+Route::post('/deletepost', [PostController::class, 'delete'])->name('deletepost');
+
+//publishedupdate
+Route::put('/publishedupdate', [PostController::class, 'publish'])->name('publishedupdate');
+
+Route::get('/mypage', function () {
+    return Inertia::render('MyPage');
+})->middleware(['auth', 'verified'])->name('mypage');
+
+
+
 require __DIR__.'/auth.php';

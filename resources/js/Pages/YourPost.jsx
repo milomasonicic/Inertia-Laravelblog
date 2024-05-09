@@ -4,6 +4,7 @@ import { useForm } from '@inertiajs/react'
 import { router } from "@inertiajs/react"
 import { useState } from 'react';
 import Image from './Image';
+import { Link } from '@inertiajs/react'
 
 export default function YourPost({auth, post}) {
 
@@ -25,6 +26,19 @@ export default function YourPost({auth, post}) {
       function submit(e) {
         e.preventDefault()
         router.put("/updatePost", data)
+    }
+
+    //delete post
+
+    function submit4(e) {
+        e.preventDefault()
+        router.post("/deletepost", data)
+    }
+
+    //publish post
+    function submit5(e){
+        e.preventDefault()
+        router.put('/publishedupdate', data)
     }
     
     //update funkcije
@@ -97,19 +111,36 @@ export default function YourPost({auth, post}) {
 
                             <div className=' px-4 w-[90%] mx-auto'>
 
-                                <ul className='flex gap-4'>
+                                <ul className='md:flex gap-4'>
                                 {post.files.map(file => (
                                     <li key={file.id}>
                                             <Image file={file}></Image>
                                         </li>
                                     ))}
                                 </ul>
+                                
+                                
+                                <Link className='text-slate-600 hover:text-slate-800'  href={`/newPost/${post.id}`}>Upload Images Again</Link>
                           
                             </div>
+                            
 
-                            <div className=' px-4 w-[90%] mx-auto'>
-                            <button type='submit'> Delete </button>
-                            <button type='submit'> Publish </button>
+                            <div className='mt-40 px-4 w-[90%] mx-auto flex'>
+
+                            <form action="" onSubmit={submit4}>
+                                <button type='submit'
+                                 class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                    
+                                > Destroy post </button>
+                            </form>
+
+                            
+                                <form action="" onSubmit={submit5}>
+                                    <button type='submit'
+                                    class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                                    > Publish </button>
+                                </form>
+                            
                             </div>
 
                         </div>

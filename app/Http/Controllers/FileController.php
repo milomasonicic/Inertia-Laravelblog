@@ -78,16 +78,11 @@ class FileController extends Controller
         $file = File::find($request->fileId);
         
         if ($file) {
-            // Obriši fizički fajl iz sistema
+            
             Storage::delete($file->img_url);
-
-            // Obriši red iz baze podataka
             $file->delete();
 
-            // Vrati odgovor da je fajl uspešno obrisan
-            return response()->json(['message' => 'File deleted successfully']);
         } else {
-            // Ako fajl ne postoji, vrati odgovor sa greškom
             return response()->json(['message' => 'File not found'], 404);
         }
     }

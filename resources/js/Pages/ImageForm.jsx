@@ -15,7 +15,7 @@ export default function ImageForm({postId}) {
   
 }
     
-    const { data, formData,  setData, put,  progress } = useForm({
+    const { data, formData,  setData, put, reset,  progress } = useForm({
         postId: " ",
         name: " ",
         file: null,
@@ -30,10 +30,9 @@ export default function ImageForm({postId}) {
     }, [postId]);
     function submit(e) {
       e.preventDefault()
-      router.post("/file-upload", data)
+      router.post("/file-upload",  data)
       setData("file", null)
       setData("null", " ")
-
   }
 
       //for sending

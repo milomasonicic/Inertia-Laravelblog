@@ -19,7 +19,7 @@ export default function Dashboard({ auth }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-       router.post('/pstore',  data)}
+       router.post('/pstore', data)}
     
 
 
