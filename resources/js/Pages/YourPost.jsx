@@ -69,7 +69,7 @@ export default function YourPost({auth, post}) {
                     >
                 <div className='py-12 bg-stone-400'>
                     <div className='mx-auto sm:px-6 lg:px-8'>
-                        <div className="bg-white overflow-hidden h-[1250px] md:w-[80%] mx-auto shadow-sm sm:rounded-lg">
+                        <div className="bg-white overflow-hidden h-[1550px] md:h-[1250px] md:w-[80%] mx-auto shadow-sm sm:rounded-lg">
                             <div className="p-6 text-gray-900">
                                 
 

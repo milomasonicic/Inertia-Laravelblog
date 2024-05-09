@@ -43,20 +43,19 @@ export default function Image({file}) {
             <div>
                 <label htmlFor="">Title oh the image</label>
             </div>   
-            <input className='w-[200px]' type="text" value={title} onChange={handleTitleChange}></input>
+            <input id='inpt' className='w-[200px]' type="text" value={title} onChange={handleTitleChange}></input>
+               
                 <button 
                 type='submit'
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                > Update</button>                        
+                className='text-blue-700'
+                 > Update</button>                        
 
             </form>
-
             <form action="" onSubmit={submit} >
                         <input type="hidden" value={file.id} onChange={e => setData('id', e.target.value)} />
                         <button 
                          type="submit"
-                         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                        
+                        className='text-red-700'
                         >Delete
                         </button>  
             </form>            
