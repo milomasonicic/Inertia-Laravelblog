@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -70,9 +71,15 @@ Route::post('/deletepost', [PostController::class, 'delete'])->name('deletepost'
 //publishedupdate
 Route::put('/publishedupdate', [PostController::class, 'publish'])->name('publishedupdate');
 
+//myPage
 Route::get('/mypage', function () {
     return Inertia::render('MyPage');
 })->middleware(['auth', 'verified'])->name('mypage');
+
+
+//ClientSideFront
+
+Route::get('/', [ClientController::class, 'index'])->name('frontPage');
 
 
 

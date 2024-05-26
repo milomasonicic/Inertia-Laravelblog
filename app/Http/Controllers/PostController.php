@@ -87,13 +87,50 @@ class PostController extends Controller
      public function publish(Request $request)
      {
 
+        //dd($request);
          $post = Post::find($request->postId);
          $post->update([
             'published'=> 1
          ]);
 
-         return redirect()->route('mypage');
+         $myPosts = Post::where('user_id', auth()->user()->id)->get();
+         //dd($myPosts);
+
+         return Inertia::render('MyPage', [
+            'myPosts' => $myPosts
+           ]);
          
      }
   
 }
+
+/*
+updejt fukcija
+
+public function update(Request $request) 
+{
+    $id = $request->postId;
+    $post = Post::find($id);
+      
+    $dataToUpdate = [];
+
+    if (!is_null($request->content)) {
+        $dataToUpdate['content'] = $request->content;
+    }
+
+    if (!is_null($request->title)) {
+        $dataToUpdate['title'] = $request->title;
+    }
+
+    if (!is_null($request->tag)) {
+        $dataToUpdate['tag'] = $request->tag;
+    }
+
+    $post->update($dataToUpdate);
+}
+
+
+
+
+
+*/

@@ -1,13 +1,10 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import { router } from '@inertiajs/react';
-import { usePage} from '@inertiajs/react'
-import { useForm } from '@inertiajs/react'
-import ImageForm from './ImageForm';
+import { Link } from '@inertiajs/react'
+import { format, parseISO } from 'date-fns';
+export default function MyPage({ auth, myPosts }) {
 
-export default function MyPage({ auth }) {
-
-  
+    const dates = [];
 
     return (
         <AuthenticatedLayout
@@ -21,6 +18,33 @@ export default function MyPage({ auth }) {
                     <div className="bg-white md:w-[80%] mx-auto overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <h1 className='text-red-400'>My Page!</h1>
+                               
+                            {myPosts && myPosts.length > 0 ? (
+                                myPosts.map((post) => (
+                                    <div key={post.id} className="mb-4">
+                                        <h2 className="text-xl font-bold">{post.title}</h2>
+                                        <span>
+                                            Created: {format(parseISO(post.created_at), 'MMMM dd, yyyy')}  
+                                        
+                                        </span>
+
+                                       <span className='ml-2'>
+                                        
+                                            Updated: {format(parseISO(post.updated_at), 'MMMM dd, yyyy')}  
+                                       </span>
+                                     
+                                       <div>
+                                         
+                                         <Link className='text-slate-600 hover:text-slate-800 '  href={`/yourPost/${post.id}`}>See the post</Link>
+                                       
+                                       </div>
+                                    </div>
+
+                               
+                                ))
+                            ) : (
+                                <p>No posts available.</p>
+                            )}
 
                         </div>
                     </div>

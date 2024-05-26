@@ -44,13 +44,13 @@ export default function Image({file}) {
                 <label htmlFor="">Title oh the image</label>
             </div>   
             <input id='inpt' className='w-[200px]' type="text" value={title} onChange={handleTitleChange}></input>
-               
                 <button 
                 type='submit'
                 className='text-blue-700'
-                 > Update</button>                        
+                 > Update the name of the pic</button>                        
 
             </form>
+
             <form action="" onSubmit={submit} >
                         <input type="hidden" value={file.id} onChange={e => setData('id', e.target.value)} />
                         <button 
