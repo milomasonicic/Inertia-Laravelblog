@@ -2,18 +2,16 @@
 
 import { Card } from "flowbite-react";
 //import Image from "next/image";
+import { Link } from "@inertiajs/react";
 
 
 //hm
 
 
-export function BlogCard({title, files,  created_at}) {
+export function BlogCard({title, files, id,  created_at}) {
     
     
     const limitedContent = title.split(' ').slice(0, 6).join(' ');
-  
-
-  
 
   return (
     <Card
@@ -37,7 +35,10 @@ export function BlogCard({title, files,  created_at}) {
 
 
       <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white capitalize">
-        {limitedContent}
+        
+      <Link className='text-black-800 hover:text-slate-800'  href={`/laypout/${id}`}>{limitedContent}</Link>   
+            
+        
       </h5>
       <h6>
       {created_at}

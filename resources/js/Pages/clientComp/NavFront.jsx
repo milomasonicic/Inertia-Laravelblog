@@ -45,12 +45,22 @@ export default function NavFront(){
            
 
             <ul id={menuOpen ? 'show' : 'hide' }>
-            <li className="">Politika</li>
-                <li className="">Ekonomija</li>
-                <li className="">Kultura</li>
-                <li className="">Sport</li>
-                <li className="">Podkast</li>
-                <li className="">Kontakt</li>
+            <li className="">
+            <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/politika`}>Politika</Link>   
+            
+            </li>
+                <li className="">
+                <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/ekonomija`}>Ekonomija</Link> 
+                </li>
+                <li className="">
+                <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/kultura`}>Kultura</Link>            
+                
+                </li>
+                <li className="">
+                    
+                <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/sport`}>Sport</Link>     
+                </li>
+               
 
             </ul>
             

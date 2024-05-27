@@ -2,6 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { Link } from '@inertiajs/react'
 import { format, parseISO } from 'date-fns';
+
 export default function MyPage({ auth, myPosts }) {
 
     const dates = [];

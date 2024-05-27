@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Post;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -17,7 +19,7 @@ class ClientController extends Controller
     public function showCategory($tag){
 
         $title = $tag;
-        $category = Post::where('tag', $tag)->with('files')->paginate(6);
+        $category = Post::where('tag', $tag)->with('files')->paginate(9);
 
         
         $formattedPosts = $category->getCollection()->map(function($c) {
@@ -45,5 +47,18 @@ class ClientController extends Controller
             'pagination' => $category->toArray()
         ] );
 
+    }
+
+    public function viewPost($id){
+
+        $post = Post::find($id);
+        $authorId = $post->user_id;
+        $author = User::find($authorId);
+        $files = File::where('post_id', $id)->get();
+        return Inertia::render('clientComp/LayOut', [
+            'post'=>$post,
+            'files'=>$files,
+            'author'=>$author
+        ]);
     }
 }
