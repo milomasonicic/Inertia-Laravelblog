@@ -7,38 +7,43 @@ import { Card } from "flowbite-react";
 //hm
 
 
-export function BlogCard({title, files, content, created_at}) {
+export function BlogCard({title, files,  created_at}) {
     
     
-    const limitedContent = content.split(' ').slice(0, 10).join(' ');
+    const limitedContent = title.split(' ').slice(0, 6).join(' ');
   
 
   
 
   return (
     <Card
-      className="max-w-sm"
+      className="w-[280px] h-[320px]"
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       //renderImage={() => <Image width={500} height={500} src="/images/blog/image-1.jpg" alt="image 1" />}
     >
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {title}
-      </h5>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-       {limitedContent}...
-      </p>
+
       {files.length > 0 ? (
-                <div>
-                    Prvi fajl: {files[0].name}
-                </div>
+              
+              <div style={{ margin: "auto", backgroundColor: "red", width: "250px", height: "150px", overflow: 'hidden' }}>
+              <img src={files[0].img_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </div>
             ) : (
-                <div>
-                    Nema fajlova
+                <div style={{width: "250px", height: "150px", overflow: 'hidden'}}>
+                    <img src="/uploads/sJPG.jpg" alt=""  style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                     
                 </div>
-            )}
-      <p>
+        )}
+
+
+
+      <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white capitalize">
+        {limitedContent}
+      </h5>
+      <h6>
       {created_at}
+      </h6>     
+
       
-      </p>
     </Card>
   );
 }

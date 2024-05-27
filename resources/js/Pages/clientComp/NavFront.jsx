@@ -24,13 +24,22 @@ export default function NavFront(){
                 </li>
                 
                 <li className="hidden md:block">
-                    <Link className='text-slate-600 hover:text-slate-800 px-14 '  href={`/tag/politika`}>Politika</Link>            
+                    <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/politika`}>Politika</Link>            
                 </li>
-                <li className="hidden md:block">Ekonomija</li>
-                <li className="hidden md:block">Kultura</li>
-                <li className="hidden md:block">Sport</li>
-                <li className="hidden md:block">Podkast</li>
-                <li className="hidden md:block">Kontakt</li>
+                <li className="hidden md:block">
+                    <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/ekonomija`}>Ekonomija</Link>            
+            
+                </li>
+                <li className="hidden md:block">
+                    <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/kultura`}>Kultura</Link>            
+                
+                </li>
+                <li className="hidden md:block">
+                
+                    <Link className='text-slate-600 hover:text-slate-800 px-5 '  href={`/tag/sport`}>Sport</Link>            
+                </li>
+                
+                
             </ul>
 
            

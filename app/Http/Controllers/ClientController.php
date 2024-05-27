@@ -17,10 +17,10 @@ class ClientController extends Controller
     public function showCategory($tag){
 
         $title = $tag;
-        $category = Post::where('tag', $tag)->with('files')->get();
+        $category = Post::where('tag', $tag)->with('files')->paginate(6);
 
         
-        $formattedPosts = $category->map(function($c) {
+        $formattedPosts = $category->getCollection()->map(function($c) {
             return [
                 'id' => $c->id,
                 'title' => $c->title,
@@ -42,6 +42,7 @@ class ClientController extends Controller
         return Inertia::render('clientComp/Tag', [
             'cat' => $formattedPosts,
             'title' => $title,
+            'pagination' => $category->toArray()
         ] );
 
     }
