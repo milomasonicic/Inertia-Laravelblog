@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../../css/app.css";
-
+import { Link } from '@inertiajs/react'
 
 export default function NavFront(){
 
@@ -23,7 +23,9 @@ export default function NavFront(){
                     </button>
                 </li>
                 
-                <li className="hidden md:block">Politika</li>
+                <li className="hidden md:block">
+                    <Link className='text-slate-600 hover:text-slate-800 px-14 '  href={`/tag/politika`}>Politika</Link>            
+                </li>
                 <li className="hidden md:block">Ekonomija</li>
                 <li className="hidden md:block">Kultura</li>
                 <li className="hidden md:block">Sport</li>

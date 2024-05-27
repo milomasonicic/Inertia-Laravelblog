@@ -81,6 +81,7 @@ Route::get('/mypage', function () {
 
 Route::get('/', [ClientController::class, 'index'])->name('frontPage');
 
-
+//categories
+Route::get('/tag/{category}', [ClientController::class, 'showCategory'])->name('tag');
 
 require __DIR__.'/auth.php';

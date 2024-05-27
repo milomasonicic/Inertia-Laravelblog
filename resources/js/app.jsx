@@ -5,6 +5,13 @@ import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
+import TimeAgo from "javascript-time-ago";
+import es from "javascript-time-ago/locale/es";
+
+TimeAgo.addLocale(es);
+TimeAgo.setDefaultLocale("es");
+
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({

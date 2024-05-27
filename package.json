@@ -20,6 +20,11 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "date-fns": "^3.6.0"
+        "date-fns": "^3.6.0",
+        "flowbite": "^2.3.0",
+        "flowbite-react": "^0.9.0",
+        "javascript-time-ago": "^2.5.10",
+        "react-time-ago": "^7.3.3",
+        "react-timeago": "^7.2.0"
     }
 }
