@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,7 @@ Route::get('/file/{postId}', [FileController::class, 'show']);
 
 //file upld
 Route::post('/upload', [FileController::class, 'store2'])->name('upload');
+
+
+
 

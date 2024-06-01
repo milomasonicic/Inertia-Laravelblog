@@ -2,18 +2,20 @@ import NavFront from "./NavFront"
 import { format, parseISO } from 'date-fns';
 import { SocialIcon } from 'react-social-icons'
 
+
+
 export default function ViewPost({post, author, files}){
 
-
+      
     
-
     return(
         <div className="bg-slate-50">
             <NavFront></NavFront>
 
             <div className="max-w-[800px] mx-auto">
                 <div className="px-6">
-                 <h1 className="mt-36 mb-4 text-4xl font-extrabold uppercase">{post.title}</h1>   
+                 <h1 className="mt-36 mb-4 text-4xl font-extrabold uppercase">{post.title}</h1> 
+               
                 {author.name != undefined ? 
                     <p className="text-slate-600 italic">
                       Author not in database      
@@ -46,6 +48,7 @@ export default function ViewPost({post, author, files}){
                 <div className="my-16">
                     {post.content}
                 </div>
+                
                 
                 <div className="flex justify-center  mx-auto">
                 <SocialIcon style={{ margin: '6px' }}  bgColor="black" fgColor="white" url="https://twitter.com" />

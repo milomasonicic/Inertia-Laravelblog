@@ -87,4 +87,6 @@ Route::get('/tag/{category}', [ClientController::class, 'showCategory'])->name('
 //singlePost
 Route::get('/laypout/{id}', [ClientController::class, 'viewPost']);
 
+
+
 require __DIR__.'/auth.php';

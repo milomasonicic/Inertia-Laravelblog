@@ -16,8 +16,6 @@ return new class extends Migration
             $table->text('content');
             $table->string('video_url')->default(null);
             $table->string('image_url')->default(null);
-            $table->integer('likes')->default(0);
-            $table->integer('dislikes')->default(0);
             $table->enum('tag', ['sport', 'kultura', 'politika', 'ekonomija']);
             // foreign key
             $table->unsignedBigInteger('user_id');
