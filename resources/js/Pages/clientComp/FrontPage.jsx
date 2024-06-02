@@ -4,6 +4,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { BlogCard } from "./BlogCardComp"
 import { Link } from "@inertiajs/react";
+import Podcast from "./Podcast";
+import Footer from "./Footer";
 
 export default function FrontPage({posts}){
 
@@ -29,7 +31,7 @@ export default function FrontPage({posts}){
                                  <Link className=' '  href={`/laypout/${post.id}`}>{post.title}</Link> 
                                     
                                 </h1>
-                                <div className="w-[100%] h-[100%] bg-red-700 bg-black opacity-60 fixed">
+                                <div className="w-[100%] h-[100%] bg-black opacity-60 fixed">
                                 </div>
                                 <img src={post.files[0].img_url} alt="" style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
 
@@ -70,6 +72,12 @@ export default function FrontPage({posts}){
             
             </div>    
             </div>
+
+            <div className="max-w-[840px] mx-auto py-18">
+            <Podcast></Podcast>
+            </div>
+
+            <Footer></Footer>
         </div>
     )
 }

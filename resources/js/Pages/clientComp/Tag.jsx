@@ -1,7 +1,7 @@
 import NavFront from "./NavFront"
 import TagHead from "./TagHead"
 import { BlogCard } from "./BlogCardComp"
-
+import Footer from "./Footer";
 //add more
 import { useState } from "react";
 import { router } from '@inertiajs/react'
@@ -72,7 +72,7 @@ export default function TagPage({cat, title, pagination}){
                  
             </div>
            
-
+            <Footer></Footer>
         </div>
     )
 }

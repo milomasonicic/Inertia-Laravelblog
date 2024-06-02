@@ -1,7 +1,7 @@
 import NavFront from "./NavFront"
 import { format, parseISO } from 'date-fns';
 import { SocialIcon } from 'react-social-icons'
-
+import Footer from "./Footer";
 
 
 export default function ViewPost({post, author, files}){
@@ -57,7 +57,7 @@ export default function ViewPost({post, author, files}){
 
                 </div>
             </div>
-
+            <Footer></Footer>
         </div>
     )
 }
