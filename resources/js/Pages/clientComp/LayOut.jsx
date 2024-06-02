@@ -13,7 +13,7 @@ export default function ViewPost({post, author, files}){
             <NavFront></NavFront>
 
             <div className="max-w-[800px] mx-auto">
-                <div className="px-6">
+                <div className="px-12">
                  <h1 className="mt-36 mb-4 text-4xl font-extrabold uppercase">{post.title}</h1> 
                
                 {author.name != undefined ? 
@@ -35,9 +35,9 @@ export default function ViewPost({post, author, files}){
                 
                 <div>
                 { files.length > 0 ? (
-                 <img src={files[0].img_url} alt="" style={{ width: '500px', height: '200px', objectFit: 'contain' }} />
+                 <img src={files[0].img_url} alt="" style={{ margin:'auto', width: '90%', height: '370px', objectFit: 'cover' }} />
                 ) : (
-                    <img src="/uploads/sJPG.jpg" alt=""  style={{ width: '500px', height: '200px', objectFit: 'contain' }} />
+                    <img src="/uploads/sJPG.jpg" alt=""  style={{ margin:'auto', width: '90%', height: '370px', objectFit: 'cover' }} />
                      
                 )}
 
@@ -45,7 +45,7 @@ export default function ViewPost({post, author, files}){
 
                 </div>
 
-                <div className="my-16">
+                <div className="my-16 px-12">
                     {post.content}
                 </div>
                 

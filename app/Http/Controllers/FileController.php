@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Podcast;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -97,5 +98,14 @@ class FileController extends Controller
             'name' => $request->title,
         ]); 
     }
+
+    public function addVideo(Request $request){
+       // dd($request);
+        Podcast::create([
+            'video_url' => $request->video_url
+        ]);
+    }
+
+    
 
 }

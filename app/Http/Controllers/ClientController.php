@@ -6,6 +6,7 @@ use App\Models\File;
 use App\Models\Post;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Models\Podcast;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -69,10 +70,16 @@ class ClientController extends Controller
             $post->created_at_diff = $post->created_at->diffForHumans();
             return $post;
         });;
+
+        //podcast
+        $lastPodcast = Podcast::latest()->first();
+
+      
        //   'created_at' => $c->created_at->diffForHumans(),
         // dd($posts);
         return Inertia::render('clientComp/FrontPage', [
             'posts'=>$posts,
+            "lastPodcast" => $lastPodcast
         ]);
     }
 

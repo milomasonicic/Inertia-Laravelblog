@@ -65,6 +65,10 @@ Route::put('/updatefilename', [FileController::class, 'updatename'])->name('upda
 //File Delete
 Route::post('/deletefile', [FileController::class, 'delete'])->name('deletefile');
 
+//add Video Url
+Route::post('/videourl', [FileController::class, 'addVideo'])->name('addVideoURL');
+
+
 //delete post
 Route::post('/deletepost', [PostController::class, 'delete'])->name('deletepost');
 
@@ -86,6 +90,8 @@ Route::get('/tag/{category}', [ClientController::class, 'showCategory'])->name('
 
 //singlePost
 Route::get('/laypout/{id}', [ClientController::class, 'viewPost']);
+
+Route::get('/ll', [ClientController::class, 'getLastVideo']);
 
 
 

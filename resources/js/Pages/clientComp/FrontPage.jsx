@@ -7,7 +7,7 @@ import { Link } from "@inertiajs/react";
 import Podcast from "./Podcast";
 import Footer from "./Footer";
 
-export default function FrontPage({posts}){
+export default function FrontPage({posts, lastPodcast}){
 
     return(
         <div className="bg-slate-50">
@@ -73,8 +73,8 @@ export default function FrontPage({posts}){
             </div>    
             </div>
 
-            <div className="max-w-[840px] mx-auto py-18">
-            <Podcast></Podcast>
+            <div className="max-w-[840px] mx-auto py-18 px-6">
+            <Podcast lastPodcast={lastPodcast}></Podcast>
             </div>
 
             <Footer></Footer>
