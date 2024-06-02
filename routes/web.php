@@ -79,7 +79,7 @@ Route::get('/mypage', function () {
 
 //ClientSideFront
 
-Route::get('/', [ClientController::class, 'index'])->name('frontPage');
+Route::get('/', [ClientController::class, 'frontPage'])->name('frontPage');
 
 //categories
 Route::get('/tag/{category}', [ClientController::class, 'showCategory'])->name('tag');

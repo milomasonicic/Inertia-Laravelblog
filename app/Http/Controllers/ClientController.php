@@ -20,7 +20,7 @@ class ClientController extends Controller
     public function showCategory($tag){
 
         $title = $tag;
-        $category = Post::where('tag', $tag)->with('files')->paginate(9);
+        $category = Post::where('tag', $tag)->with('files')->orderBy('created_at', 'desc')->paginate(9);
 
         
         $formattedPosts = $category->getCollection()->map(function($c) {
@@ -60,6 +60,19 @@ class ClientController extends Controller
             'post'=>$post,
             'files'=>$files,
             'author'=>$author
+        ]);
+    }
+    
+    public function frontPage(){
+
+        $posts = Post::with('files')->orderBy('created_at', 'desc')->take(6)->get()->map(function ($post) {
+            $post->created_at_diff = $post->created_at->diffForHumans();
+            return $post;
+        });;
+       //   'created_at' => $c->created_at->diffForHumans(),
+        // dd($posts);
+        return Inertia::render('clientComp/FrontPage', [
+            'posts'=>$posts,
         ]);
     }
 

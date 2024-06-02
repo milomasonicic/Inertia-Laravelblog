@@ -15,7 +15,11 @@ export default function NavFront(){
             
             <ul className="flex justify-between max-w-[1140px] mx-auto p-4">
                 <li>
-                <a href="">Logo</a>
+                <Link className='text-slate-600 hover:text-slate-800 font-italic'  href={`/`}>
+                  
+                        Our Blog
+                
+                </Link> 
                 </li>
                 <li className="md:hidden">
                     <button onClick={toggleMenu}>
