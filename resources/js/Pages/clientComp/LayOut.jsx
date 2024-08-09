@@ -64,10 +64,3 @@ export default function ViewPost({post, author, files}){
 
 
 
-/*
- { files.length > 0 ? 
-                " "
-                 :
-                 <img src={files[0].img_url} alt=""  style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                     
-                }*/

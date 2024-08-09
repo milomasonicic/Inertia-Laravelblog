@@ -53,7 +53,7 @@ export default function TagPage({cat, title, pagination}){
                     ))
                 ): (
                     <p>
-                        'No av'
+                        'No content'
                     </p>
                 )}
 

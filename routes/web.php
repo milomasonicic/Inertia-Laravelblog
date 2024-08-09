@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//postsStore
+//postsStore, admin side, CRUD METHODS mostly
 Route::post('/pstore', [PostController::class, 'store'])->name('post.store');
 //Img Part of form
 Route::get('newPost/{id}', function($id) {
@@ -90,8 +90,6 @@ Route::get('/tag/{category}', [ClientController::class, 'showCategory'])->name('
 
 //singlePost
 Route::get('/laypout/{id}', [ClientController::class, 'viewPost']);
-
-Route::get('/ll', [ClientController::class, 'getLastVideo']);
 
 
 

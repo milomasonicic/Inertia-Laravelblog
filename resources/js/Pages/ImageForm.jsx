@@ -99,26 +99,4 @@ export default function ImageForm({postId}) {
       )
     }
 
-    /*
-      onChange={handleImageChange}
-            onChange={(e) =>
-                setData("file", e.target.files[0])
-            }
-
-
-            ako budem htio da pravim arej...
-              setData("file", e.target.files[0])
-
-        if(e.target.files) {
-          const filesArray = Array.from(e.target.files).map((file) => URL.createObjectURL(file))
-          setSelectedFiles((prevImages) => prevImages.concat(filesArray))
-          Array.from(e.target.files).map(
-            (file)=> URL.revokeObjectURL(file)
-          )
-        }
-
-          const renderPhotos = (source) => {
-    return source.map((photo) => {
-      return <img key={photo} src={source} alt="" style={{width: "20%", height: "180px"}} />
-    })
-    */
+   

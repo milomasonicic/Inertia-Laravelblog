@@ -5,7 +5,7 @@ import { Card } from "flowbite-react";
 import { Link } from "@inertiajs/react";
 
 
-//hm
+//blog card
 
 
 export function BlogCard({title, files, id,  created_at}) {

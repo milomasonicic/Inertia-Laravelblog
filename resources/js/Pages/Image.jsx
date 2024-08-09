@@ -17,10 +17,6 @@ export default function Image({file}) {
     function submit(e) {
         e.preventDefault()
         router.post("/deletefile", data)
-        /*
-        e.preventDefault();
-        deleteFile(`/deletefile/103`, { method: 'delete' }); // Slanje DELETE zahteva koristeći deleteFile metodu i prosleđivanje podataka
-        */
     }
 
     const handleTitleChange = (e) => {
@@ -63,34 +59,5 @@ export default function Image({file}) {
     )
 }
 
-/*
-<img src={file.img_url} style={{width: "200px", height: "180px"}} alt="" /> 
-                   
 
-<form action="" onSubmit={submit} >
-                        <input type="hidden" value={file.id} onChange={e => setData('id', e.target.value)} />
-                        <button 
-                         type="submit"
-                        >Delete
-                        </button>   
-
-
-
-                        <ul className='flex gap-4'>
-               {post.files.map(file => (
-                    <li key={file.id}>{file.name}
-                        <img src={file.img_url} style={{width: "200px", height: "180px"}} alt="" /> 
-                    <form action="" onSubmit={submit} >
-                        <input type="hidden" value={file.id} onChange={e => setData('id', e.target.value)} />
-                        <button 
-                         type="submit"
-                        >Delete
-                        </button>                                 
-                    </form>
-                     </li>
-                ))}
-
-
-
-*/
 

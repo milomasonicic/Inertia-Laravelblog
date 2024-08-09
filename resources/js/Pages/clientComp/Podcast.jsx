@@ -4,11 +4,10 @@ import getVideoId from 'get-video-id';
 export default function Podcast({lastPodcast}){
 
     const youtubeStyle = {
-        // Add your CSS properties here
-        width: '200px', // Example width
-        height: '500px', // Example height
-        border: 'none', // Example border
-        // Add more styles as needed
+        width: '200px', 
+        height: '500px', 
+        border: 'none', 
+      
     };
 
     const opts = {
@@ -16,17 +15,18 @@ export default function Podcast({lastPodcast}){
         width: '90%'
       };
 
-      const idVideo  = getVideoId(lastPodcast.video_url);
-     
-    return(
+       
+    const idVideo = lastPodcast && lastPodcast.video_url ? getVideoId(lastPodcast.video_url) : null;
+
+    return (
         <div className='py-14'>
-        
-           
-            <h1 className="text-4xl font-extrabold uppercase text-left my-8 mb-4" > Watch the Video</h1>
-            <YouTube 
-            opts={opts}
-            
-            videoId={idVideo.id}/>
+            <h1 className="text-4xl font-extrabold uppercase text-left my-8 mb-4">Watch the Video</h1>
+            {idVideo && idVideo.id && (
+                <YouTube 
+                    opts={opts}
+                    videoId={idVideo.id}
+                />
+            )}
         </div>
-    )
+    );
 }

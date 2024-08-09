@@ -65,7 +65,7 @@ export default function MyPage({ auth, myPosts }) {
                         {
                             auth.user.name =="admin"? 
                             <div className='px-5 py-12'>
-                                <h1> Hello Admin. You can add podcast to the front page.</h1>
+                                <h1> Hello Admin. You can add youtube link to the front page.</h1>
                                 <form  onSubmit={handleSubmit}>
                                   
                                     <input className='w-[70%] mr-4' type="text"  value={data.video_url} onChange={e => setData('video_url', e.target.value)}  />
